@@ -6,7 +6,7 @@
 #include <numeric>
 using namespace std;
 
-
+/*DAY 1*/
 //Question 1: Longest Subarray with Sum K (https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/)
 /*
 Brute Force is to take 2 poiunters and check for all the subarrays and check if the sum is equal to k or not. 
@@ -71,6 +71,8 @@ vector<int> twoSum(vector<int>& nums, int target) {
             mp[nums[i]]=i;
         }
 }
+
+/*Day2 ====================================================================================================================*/
 
 
 int main()
