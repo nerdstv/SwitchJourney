@@ -6,7 +6,6 @@
 #include <numeric>
 using namespace std;
 
-/*DAY 1*/
 //Question 1: Longest Subarray with Sum K (https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/)
 /*
 Brute Force is to take 2 poiunters and check for all the subarrays and check if the sum is equal to k or not. 
@@ -71,8 +70,6 @@ vector<int> twoSum(vector<int>& nums, int target) {
             mp[nums[i]]=i;
         }
 }
-
-/*Day2 ====================================================================================================================*/
 /*
 Question 3: Sort Colors (https://leetcode.com/problems/sort-colors/)
 Brute Force is to take a count of the number of 0's, 1's and 2's and then update the array with the count of 0's, 1's and 2's.
@@ -114,20 +111,47 @@ void sortColors(vector<int>& nums) {
 }
 
 /*
-Question 4: Majority Element (https://leetcode.com/problems/majority-element/)
-cONCEPT: Boyer-Moore Voting Algorithm
-1. Take 2 variables candidate and count.    
+Question 4 and 5: Majority Element I and II(https://leetcode.com/problems/majority-element/ , https://leetcode.com/problems/majority-element-ii/)
+cONCEPT: Boyer-Moore Voting Algorithm:
+1. This algorithm is used to find the majority element in the array in both the questions.
+2. In the first question, the majority element is the element that appears more than n/2 times.
+3. In the second question, the majority element is the element that appears more than n/3 times.
+4. The algorithm is used to find the majority element in the array.
+
+THe Logic of the Algorithm is:
+1. Take 2 variables candidate and count.
 2. Initialize the candidate with the first element of the array and count with 1.
-3. Traverse the array and check if the element is equal to the candidate then increment the count.
-4. If the element is not equal to the candidate then decrement the count.  
+3. Traverse the array and check if the current element is equal to the candidate then increment the count.
+4. If the current element is not equal to the candidate then decrement the count.
 5. If the count is 0 then update the candidate with the current element and count with 1.
-6. Return the candidate.    
+6. Traverse the array again and check the frequency of the candidate element.
+7. If the frequency is greater than n/2 then return the candidate element.
+8. If the frequency is greater than n/3 then return the candidate element.
+9. If the frequency is not greater than n/2 then return -1.
+10. If the frequency is not greater than n/3 then return -1.
+
+In hind:
+1. 2 variables lo candidate and count lelo.
+2. Candidate ko first element se initialize karo and count ko 1 se.
+3. Array traverse karo and check karo ki current element candidate ke equal hai ya nahi.
+4. Agar current element candidate ke equal hai to count ko increment karo.  
+5. Agar current element candidate ke equal nahi hai to count ko decrement karo.
+6. Agar count 0 ho gaya to candidate ko current element se update karo and count ko 1 se update karo.
+7. Fir se array traverse karo and check karo ki candidate element ka frequency kitna hai.
+8. Agar frequency n/2 se jyada hai to candidate element return karo.
+9. Agar frequency n/3 se jyada hai to candidate element return karo.
+10. Agar frequency n/2 se jyada nahi hai to -1 return karo.
+11. Agar frequency n/3 se jyada nahi hai to -1 return karo.  
+
+Note: In the second question, there can be multiple majority elements so we have to check the frequency of the candidate element.
+To check the frequency of the candidate element, we have to traverse the array again.
+
 */
 
 
 
 /*
-Question 5: Kedane's Algorithm (https://leetcode.com/problems/maximum-subarray/)
+Question 6: Kedane's Algorithm (https://leetcode.com/problems/maximum-subarray/)
 Brute Force is to take 2 loops and check for all the subarrays and check the sum of the subarray.   
 and then return the maximum sum of the subarray.
 Best Approach: Kedane's Algorithm  
