@@ -245,6 +245,35 @@ int maxSubArray(vector<int>& nums) {
         return max_sum;
 }
 
+/*Question 7: Best Time to Buy and Sell Stock (https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)(DP)
+Algo:
+1. Take 2 variables min_price and max_profit.
+2. Initialize min_price with the first element of the array and max_profit with 0.
+3. Traverse the array and check if the current element is less than the min_price then update the min_price with the current element.
+4. If the current element is greater than the min_price then update the max_profit with the difference of the current element and the min_price.
+5. Return the max_profit.
+ In hindi:
+1. 2 variables lo min_price and max_profit lelo.
+2. Min_price ko first element se initialize karo and max_profit ko 0 se.
+3. Array traverse karo and check karo ki current element min_price se chota hai ya nahi.
+4. Agar current element min_price se chota hai to min_price ko current element se update karo.
+5. Agar current element min_price se bada hai to max_profit ko current element aur min_price ka difference se update karo.
+6. Max_profit ko return karo.
+*/
+//Please do dry run once to understand the logic.
+int maxProfit(vector<int>& prices) {
+    int n = prices.size();
+    int ans = 0;
+    int mini = prices[0];
+    for(int i = 1; i<n; i++){
+        int cost = prices[i] - mini;// buy kar rahe hai
+        mini = min(mini, prices[i]); // sell kar rahe hai
+        ans = max(ans, cost);// profit nikal rahe hai
+    }
+
+    return ans;
+}
+
 int main()
 {
     vector<int> v;
