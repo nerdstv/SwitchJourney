@@ -273,6 +273,33 @@ int maxProfit(vector<int>& prices) {
 
     return ans;
 }
+//We will again discuss this in the DP section.
+
+/*
+Question 8: 2149. Rearrange Array Elements by Sign (https://leetcode.com/problems/rearrange-array-elements-by-sign/)
+Watch:https://www.youtube.com/watch?v=cSG2bzAuLGU
+*/
+
+vector<int> rearrangeArray(vector<int>& nums) {
+    int n = nums.size();
+
+    vector<int> result(n);
+
+    int pi = 0;
+    int ni = 1;
+
+    for(int &num : nums) {
+        if(num > 0){
+            result[pi] = num;
+            pi+=2;
+        }else{
+            result[ni] = num;
+            ni+=2;
+        }
+    }
+    return result;
+}
+
 
 int main()
 {
